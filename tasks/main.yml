@@ -1,0 +1,13 @@
+---
+
+- name: Ubuntu specific
+  tags:
+    - common
+  when: ansible_distribution is defined and ( ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' )
+  import_tasks: ubuntu.yml
+
+- name: Centos specific
+  tags:
+    - common
+  when: ansible_distribution is defined and ( ansible_distribution == 'CentOS' )
+  import_tasks: centos.yml
